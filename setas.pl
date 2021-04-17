@@ -1,8 +1,3 @@
-ask(A, V):- known(yes, A, V),!.
-ask(A, V):- known(_, A, V),!,fail.
-ask(A, V):- write(A:V), write('? : '), read(Y), 
-  asserta(known(Y, A, V)), Y == yes.
-
 %setas no venenosas%
 
 seta(agaricus_campester):-
@@ -52,4 +47,30 @@ seta(boletus_satanas):-
 seta(gyromitra_esculenta):-
     sombrero_forma(nuez),sombrero(rosa),tono(marron),
     temporada(primavera).
+    
+ask(A, V):- known(yes, A, V),!.
+ask(A, V):- known(_, A, V),!,fail.
+ask(A, V):- write(A:V), write('? : '), read(Y),
+    asserta(known(Y, A, V)), Y == yes.
+
+sombrero_forma(X):-
+    ask(sombrero_forma,X).
+
+sombrero(X):-
+    ask(sombrero,X).
+
+laminas(X):-
+    ask(laminas,X).
+
+tono(X):-
+    ask(tono,X).
+
+olor(X):-
+    ask(olor,X).
+
+temporada(X):-
+    ask(temporada,X).
+
+manchas(X):-
+    ask(manchas,X).
 
