@@ -3,7 +3,7 @@ ask(A, V):- known(_, A, V),!,fail.
 ask(A, V):- write(A:V), write('? : '), read(Y), 
   asserta(known(Y, A, V)), Y == yes.
 
-¡%setsa no venenosas%
+%setas no venenosas%
 
 seta(agaricus_campester):-
      sombrero_forma(concava),sombrero(blanco),(tono(grisaceo);tono(rosaceo)),
@@ -41,4 +41,15 @@ seta(amanita_verna):-
 seta(amanita_muscaria):-
     sombrero_forma(plato),sombrero(rojo),manchas(blancas),
     laminas(blancas).
+
+seta(cortinarius_orellanus):-
+    sombrero_forma(concava),sombrero(marron),laminas(marrones).
+
+seta(boletus_satanas):-
+    sombrero_forma(concava),sombrero(blanco),tono(amarillento),
+    laminas(rojas),olor(desagradable).
+
+seta(gyromitra_esculenta):-
+    sombrero_forma(nuez),sombrero(rosa),tono(marron),
+    temporada(primavera).
 
