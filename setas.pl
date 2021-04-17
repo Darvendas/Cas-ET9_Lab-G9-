@@ -48,10 +48,13 @@ seta(gyromitra_esculenta):-
     sombrero_forma(nuez),sombrero(rosa),tono(marron),
     temporada(primavera).
     
+%ask(Attr, Val):- write(Attr:Val), write('? '), read(yes).
+
 ask(A, V):- known(yes, A, V),!.
 ask(A, V):- known(_, A, V),!,fail.
 ask(A, V):- write(A:V), write('? : '), read(Y),
     asserta(known(Y, A, V)), Y == yes.
+    
 
 sombrero_forma(X):-
     ask(sombrero_forma,X).
