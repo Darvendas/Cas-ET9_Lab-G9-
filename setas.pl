@@ -55,6 +55,7 @@ ask(A, V):- known(_, A, V),!,fail.
 ask(A, V):- write(A:V), write('? : '), read(Y),
     asserta(known(Y, A, V)), Y == yes.
     
+:- dynamic known/3.
 
 sombrero_forma(X):-
     ask(sombrero_forma,X).
